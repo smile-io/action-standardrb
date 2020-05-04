@@ -1,6 +1,6 @@
 # GitHub Action: Run standardrb with reviewdog 🐶
 
-This action runs [standardrb](https://github.com/standardrb-hq/standardrb) with
+This action runs [standardrb](https://github.com/testdouble/standard) with
 [reviewdog](https://github.com/reviewdog/reviewdog) on pull requests to improve
 code review experience.
 
@@ -74,6 +74,10 @@ jobs:
           rubocop_version: 0.1.6
           rubocop_flags: --format progress
 ```
+
+## Note
+
+For now *reviewdog* is not supporting standardrb formatter but I've already opened a PR and waiting to be merged so instead the workaround is to use `--format progress` to make it work with rubocop formatter.
 
 ## License
 
