@@ -4,8 +4,6 @@ This action runs [standardrb](https://github.com/testdouble/standard) with
 [reviewdog](https://github.com/reviewdog/reviewdog) on pull requests to improve
 code review experience.
 
-## Examples
-
 ## Example usage
 
 ```yml
