@@ -1,10 +1,6 @@
-# GitHub Action: Run rubocop with reviewdog 🐶
+# GitHub Action: Run standardrb with reviewdog 🐶
 
-![](https://github.com/reviewdog/action-rubocop/workflows/CI/badge.svg)
-![](https://img.shields.io/github/license/reviewdog/action-rubocop)
-![](https://img.shields.io/github/v/release/reviewdog/action-rubocop)
-
-This action runs [rubocop](https://github.com/rubocop-hq/rubocop) with
+This action runs [standardrb](https://github.com/standardrb-hq/standardrb) with
 [reviewdog](https://github.com/reviewdog/reviewdog) on pull requests to improve
 code review experience.
 
@@ -28,13 +24,13 @@ With `reporter: github-pr-review` a comment is added to the Pull Request Convers
 
 **Required**. Must be in form of `github_token: ${{ secrets.github_token }}`'.
 
-### `rubocop_flags`
+### `standardrb_flags`
 
-Optional. rubocop flags. (rubocop `<rubocop_flags>`)
+Optional. standardrb flags. (standardrb `<standardrb_flags>`)
 
-### `rubocop_version`
+### `standardrb_version`
 
-Optional. Set rubocop version. 
+Optional. Set standardrb version. 
 By default install latest version.
 
 ### `tool_name`
@@ -52,11 +48,11 @@ It's same as `-level` flag of reviewdog.
 Optional. Reporter of reviewdog command [`github-pr-check`, `github-pr-review`].
 The default is `github-pr-check`.
 
-### `rubocop_extensions`
+### `standardrb_extensions`
 
-Optional. Set list of rubocop extensions with versions. 
+Optional. Set list of standardrb extensions with versions. 
 
-By default install `rubocop-rails`, `rubocop-performance`, `rubocop-rspec`, `rubocop-i18n`, `rubocop-rake` with latest versions.
+By default install `standardrb-rails`, `standardrb-performance`, `standardrb-rspec`, `standardrb-i18n`, `standardrb-rake` with latest versions.
 
 ## Example usage
 
@@ -64,29 +60,20 @@ By default install `rubocop-rails`, `rubocop-performance`, `rubocop-rspec`, `rub
 name: reviewdog
 on: [pull_request]
 jobs:
-  rubocop:
-    name: runner / rubocop
+  standardrb:
+    name: runner / standardrb
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
         uses: actions/checkout@v1
-      - name: rubocop
-        uses: reviewdog/action-rubocop@v1
+      - name: standardrb
+        uses: SennaLabs/action-standardrb@v0.0.3
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review # Default is github-pr-check
-          rubocop_version: 0.80.1
-          rubocop_extensions: rubocop-performance:1.5.1 rubocop-minitest
+          rubocop_version: 0.1.6
+          rubocop_flags: --format progress
 ```
-
-## Sponsor
-
-<p>
-  <a href="https://evrone.com/?utm_source=action-rubocop">
-    <img src="https://www.mgrachev.com/assets/static/evrone-sponsored-300.png" 
-      alt="Sponsored by Evrone" width="210">
-  </a>
-</p>
 
 ## License
 
