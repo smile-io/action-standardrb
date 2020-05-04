@@ -9,7 +9,7 @@ cd "$GITHUB_WORKSPACE"
 
 export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
-gem install -N standard $(version $INPUT_RUBOCOP_VERSION)
+gem install -N standardrb $(version $INPUT_RUBOCOP_VERSION)
 
 # echo $INPUT_RUBOCOP_EXTENSIONS | xargs gem install -N
 
