@@ -24,6 +24,11 @@ inputs:
   rubocop_extensions:
     description: 'Rubocop extensions'
     default: 'rubocop-rails rubocop-performance rubocop-rspec rubocop-i18n rubocop-rake'
+  fail_on_error:
+    description: |
+      Exit code for reviewdog when errors are found [true,false]
+      Default is `true`.
+    default: 'true'
 runs:
   using: 'docker'
   image: 'Dockerfile'
