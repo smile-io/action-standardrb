@@ -21,6 +21,8 @@ inputs:
     default: 'github-pr-check'
   rubocop_version:
     description: 'Rubocop version'
+  standard_version:
+    description: 'Standard version'
   rubocop_extensions:
     description: 'Rubocop extensions'
     default: 'rubocop-rails rubocop-performance rubocop-rspec rubocop-i18n rubocop-rake'
@@ -40,6 +42,7 @@ runs:
     - ${{ inputs.reporter }}
     - ${{ inputs.rubocop_version }}
     - ${{ inputs.rubocop_extensions }}
+    - ${{ inputs.standard_version }}
 branding:
   icon: 'check-circle'
   color: 'red'
