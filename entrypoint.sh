@@ -11,6 +11,8 @@ export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
 gem install -N standard $(version $INPUT_STANDARD_VERSION)
 
+echo '::group:: Running standardrb with reviewdog 🐶 ...'
+
 standardrb ${INPUT_RUBOCOP_FLAGS} \
   | reviewdog \
 	-f=rubocop \
@@ -18,3 +20,8 @@ standardrb ${INPUT_RUBOCOP_FLAGS} \
 	-reporter="${INPUT_REPORTER}" \
 	-fail-on-error="${INPUT_FAIL_ON_ERROR}" \
 	-level="${INPUT_LEVEL}"
+	
+exit_code=$?
+echo '::endgroup::'
+
+exit $exit_code
