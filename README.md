@@ -17,7 +17,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v3
       - name: standardrb
-        uses: PrintReleaf/action-standardrb@master
+        uses: PrintReleaf/action-standardrb@v0.0.7
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review # Default is github-pr-check
