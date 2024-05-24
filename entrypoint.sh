@@ -12,6 +12,7 @@ git config --global --add safe.directory $GITHUB_WORKSPACE || exit 1
 export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
 gem install -N standard $(version $INPUT_STANDARD_VERSION)
+gem install -N standard $(version $INPUT_STANDARD_RAILS_VERSION)
 
 echo '::group:: Running standardrb with reviewdog 🐶 ...'
 
@@ -22,7 +23,7 @@ standardrb ${INPUT_RUBOCOP_FLAGS} \
 	-reporter="${INPUT_REPORTER}" \
 	-fail-on-error="${INPUT_FAIL_ON_ERROR}" \
 	-level="${INPUT_LEVEL}"
-	
+
 exit_code=$?
 echo '::endgroup::'
 

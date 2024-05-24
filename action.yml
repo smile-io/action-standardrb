@@ -1,39 +1,41 @@
-name: 'Run rubocop with reviewdog'
-description: '🐶 Run rubocop with reviewdog on pull requests to improve code review experience.'
-author: 'mgrachev (reviewdog)'
+name: "Run rubocop with reviewdog"
+description: "🐶 Run rubocop with reviewdog on pull requests to improve code review experience."
+author: "mgrachev (reviewdog)"
 inputs:
   github_token:
-    description: 'GITHUB_TOKEN.'
+    description: "GITHUB_TOKEN."
     required: true
   rubocop_flags:
-    description: 'rubocop flags. (rubocop <rubocop_flags>)'
-    default: ''
+    description: "rubocop flags. (rubocop <rubocop_flags>)"
+    default: ""
   tool_name:
-    description: 'Tool name to use for reviewdog reporter'
-    default: 'rubocop'
+    description: "Tool name to use for reviewdog reporter"
+    default: "rubocop"
   level:
-    description: 'Report level for reviewdog [info,warning,error]'
-    default: 'error'
+    description: "Report level for reviewdog [info,warning,error]"
+    default: "error"
   reporter:
     description: |
       Reporter of reviewdog command [github-pr-check,github-pr-review].
       Default is github-pr-check.
-    default: 'github-pr-check'
+    default: "github-pr-check"
   rubocop_version:
-    description: 'Rubocop version'
+    description: "Rubocop version"
   standard_version:
-    description: 'Standard version'
+    description: "Standard version"
+  standard_rails_version:
+    description: "Standard version"
   rubocop_extensions:
-    description: 'Rubocop extensions'
-    default: 'rubocop-rails rubocop-performance rubocop-rspec rubocop-i18n rubocop-rake'
+    description: "Rubocop extensions"
+    default: "rubocop-rails rubocop-performance rubocop-rspec rubocop-i18n rubocop-rake"
   fail_on_error:
     description: |
       Exit code for reviewdog when errors are found [true,false]
       Default is `true`.
-    default: 'true'
+    default: "true"
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
   args:
     - ${{ inputs.github_token }}
     - ${{ inputs.rubocop_flags }}
@@ -43,6 +45,7 @@ runs:
     - ${{ inputs.rubocop_version }}
     - ${{ inputs.rubocop_extensions }}
     - ${{ inputs.standard_version }}
+    - ${{ inputs.standard_rails_version }}
 branding:
-  icon: 'check-circle'
-  color: 'red'
+  icon: "check-circle"
+  color: "red"
