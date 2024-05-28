@@ -17,14 +17,17 @@ inputs:
   reporter:
     description: |
       Reporter of reviewdog command [github-pr-check,github-pr-review].
-      Default is github-pr-check.
-    default: "github-pr-check"
+      Default is github-pr-review.
+    default: "github-pr-review"
   rubocop_version:
     description: "Rubocop version"
   standard_version:
-    description: "Standard version"
+    description: "Standard Ruby version"
   standard_rails_version:
-    description: "Standard version"
+    description: "Standard Rails version"
+  files:
+    description: "Files to lint [default: ./]"
+    default: "./"
   rubocop_extensions:
     description: "Rubocop extensions"
     default: "rubocop-rails rubocop-performance rubocop-rspec rubocop-i18n rubocop-rake"
@@ -46,6 +49,7 @@ runs:
     - ${{ inputs.rubocop_extensions }}
     - ${{ inputs.standard_version }}
     - ${{ inputs.standard_rails_version }}
+    - ${{ inputs.files }}
 branding:
   icon: "check-circle"
   color: "red"

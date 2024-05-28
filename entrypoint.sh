@@ -16,13 +16,13 @@ gem install -N standard-rails $(version $INPUT_STANDARD_RAILS_VERSION)
 
 echo '::group:: Running standardrb with reviewdog 🐶 ...'
 
-standardrb ${INPUT_RUBOCOP_FLAGS} \
+standardrb ${INPUT_RUBOCOP_FLAGS} ${INPUT_FILES} \
   | reviewdog \
-	-f=rubocop \
-	-name="${INPUT_TOOL_NAME}" \
-	-reporter="${INPUT_REPORTER}" \
-	-fail-on-error="${INPUT_FAIL_ON_ERROR}" \
-	-level="${INPUT_LEVEL}"
+  -f=rubocop \
+  -name="${INPUT_TOOL_NAME}" \
+  -reporter="${INPUT_REPORTER}" \
+  -fail-on-error="${INPUT_FAIL_ON_ERROR}" \
+  -level="${INPUT_LEVEL}"
 
 exit_code=$?
 echo '::endgroup::'
