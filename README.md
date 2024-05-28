@@ -7,27 +7,23 @@ code review experience.
 ## Example usage
 
 ```yml
-name: reviewdog
-on: [pull_request]
+name: Lint
+on: pull_request
 jobs:
   standardrb:
-    name: runner / standardrb
+    name: Standard Ruby
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
         uses: actions/checkout@v3
       - name: standardrb
-        uses: PrintReleaf/action-standardrb@v0.0.7
+        uses: smile-io/action-standardrb@master
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review # Default is github-pr-check
           rubocop_flags: --format progress
-          standard_version: 1.12.1
+          standard_version: 1.36.0
 ```
-
-## Note
-
-For now *reviewdog* is not supporting standardrb formatter but I've already opened a PR and waiting to be merged so instead the workaround is to use `--format progress` to make it work with rubocop formatter.
 
 ## License
 
