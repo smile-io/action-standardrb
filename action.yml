@@ -26,9 +26,6 @@ inputs:
   files:
     description: "Files to lint [default: ./]"
     default: "./"
-  rubocop_extensions:
-    description: "Rubocop extensions"
-    default: "rubocop-rails rubocop-performance rubocop-rspec rubocop-i18n rubocop-rake"
   fail_on_error:
     description: |
       Exit code for reviewdog when errors are found [true,false]
@@ -43,7 +40,6 @@ runs:
     - ${{ inputs.tool_name }}
     - ${{ inputs.level }}
     - ${{ inputs.reporter }}
-    - ${{ inputs.rubocop_extensions }}
     - ${{ inputs.standard_version }}
     - ${{ inputs.standard_rails_version }}
     - ${{ inputs.files }}
