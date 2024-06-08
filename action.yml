@@ -5,9 +5,9 @@ inputs:
   github_token:
     description: "GITHUB_TOKEN."
     required: true
-  rubocop_flags:
-    description: "rubocop flags. (rubocop <rubocop_flags>)"
-    default: ""
+  standard_options:
+    description: "standard optinos. (standardrb <standard_options>)"
+    default: "--format progress"
   tool_name:
     description: "Tool name to use for reviewdog reporter"
     default: "rubocop"
@@ -41,7 +41,7 @@ runs:
   image: "Dockerfile"
   args:
     - ${{ inputs.github_token }}
-    - ${{ inputs.rubocop_flags }}
+    - ${{ inputs.standard_options }}
     - ${{ inputs.tool_name }}
     - ${{ inputs.level }}
     - ${{ inputs.reporter }}

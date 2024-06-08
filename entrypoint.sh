@@ -16,7 +16,7 @@ gem install -N standard-rails $(version $INPUT_STANDARD_RAILS_VERSION)
 
 echo '::group:: Running standardrb with reviewdog 🐶 ...'
 
-standardrb ${INPUT_RUBOCOP_FLAGS} ${INPUT_FILES} \
+standardrb ${INPUT_STANDARD_OPTIONS} ${INPUT_FILES} \
   | reviewdog \
   -f=rubocop \
   -name="${INPUT_TOOL_NAME}" \
