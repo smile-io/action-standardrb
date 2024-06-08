@@ -16,7 +16,7 @@ inputs:
     default: "error"
   reporter:
     description: |
-      Reporter of reviewdog command [github-pr-check,github-pr-review].
+      Reporter of reviewdog command [github-pr-review,github-pr-check].
       Default is github-pr-review.
     default: "github-pr-review"
   standard_version:
