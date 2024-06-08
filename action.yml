@@ -1,16 +1,16 @@
-name: "Run rubocop with reviewdog"
-description: "🐶 Run rubocop with reviewdog on pull requests to improve code review experience."
+name: "Run standard with reviewdog"
+description: "🐶 Run Standard Ruby and Standard Rails with reviewdog on pull requests to improve code review experience."
 author: "mgrachev (reviewdog)"
 inputs:
   github_token:
     description: "GITHUB_TOKEN."
     required: true
   standard_options:
-    description: "standard optinos. (standardrb <standard_options>)"
+    description: "standard options. (standardrb <standard_options>)"
     default: "--format progress"
   tool_name:
     description: "Tool name to use for reviewdog reporter"
-    default: "rubocop"
+    default: "standard"
   level:
     description: "Report level for reviewdog [info,warning,error]"
     default: "error"
@@ -19,8 +19,6 @@ inputs:
       Reporter of reviewdog command [github-pr-check,github-pr-review].
       Default is github-pr-review.
     default: "github-pr-review"
-  rubocop_version:
-    description: "Rubocop version"
   standard_version:
     description: "Standard Ruby version"
   standard_rails_version:
@@ -45,7 +43,6 @@ runs:
     - ${{ inputs.tool_name }}
     - ${{ inputs.level }}
     - ${{ inputs.reporter }}
-    - ${{ inputs.rubocop_version }}
     - ${{ inputs.rubocop_extensions }}
     - ${{ inputs.standard_version }}
     - ${{ inputs.standard_rails_version }}
