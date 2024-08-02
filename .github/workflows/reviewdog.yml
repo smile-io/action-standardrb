@@ -4,6 +4,9 @@ jobs:
   hadolint:
     name: runner / hadolint
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
       - name: Check out code
         uses: actions/checkout@v1
