@@ -1,4 +1,6 @@
-FROM ruby@sha256:f7ab76e2c36ab406ebc36aeba20624b26a8fae7c2998acabbe9662e2a73f00f3
+# Use Alpine-based Ruby image to ensure /bin/ash and apk are available
+# Use the latest Ruby 3.3 Alpine image. If pinning is required, replace the tag with a digest.
+FROM ruby@sha256:73ee3f4ab883b972df42ff9e393627bd4c09befd3a4ee7ce08ca9bfd62791b0c
 
 ENV REVIEWDOG_VERSION v0.20.3
 
